@@ -76,7 +76,7 @@ int main() {
 					j--;
 				}
 				while ((str[i][j] != ' ') && (str[i][j] != '\0')) { // выводим слово с подстрочкой
-					SetConsoleTextAttribute(hConsole, (WORD)((a << 4) | b));// красим фон и символ за символом в нужный цвет и 
+					SetConsoleTextAttribute(hConsole, (WORD)((a << 4) | b));// красим фон за символом и символ в нужный цвет 
 					printf("%c", str[i][j]);
 					j++;
 				}
