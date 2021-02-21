@@ -9,10 +9,10 @@ struct Employee {
 	char position[50];
 	int year_of_birthday;
 	int salary;
-}*s, *r;
+}*s, * r;
 
 
-void chang(int i,int j) {
+void chang(int i, int j) {
 	*(r + 0) = *(s + i);
 	*(s + i) = *(s + j);
 	*(s + j) = *(r + 0);
@@ -44,7 +44,7 @@ void del1(int i, int* n) {
 }
 
 void output1a(int i) {
-	printf("Employee ¹%d\n", i + 1);
+	printf("Employee â„–%d\n", i + 1);
 	printf("First name: ");
 	puts((s + i)->first_name);
 	printf("Last name: ");
@@ -69,71 +69,71 @@ void search(int n) {
 		return 0;
 	}
 	switch (a) {
-		case 1:
-			printf("input search query: ");		
-			gets_s(se, 50);
-			gets_s(se,50);
-			for (int i = 0; i < n; i++) {
-				if (!(strcmp((s+i)->first_name, se))) {
-					output1a(i);
-				}
+	case 1:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (!(strcmp((s + i)->first_name, se))) {
+				output1a(i);
 			}
-			break;
-		case 2:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se,50);
-			for (int i = 0; i < n; i++) {
-				if (!(strcmp((s + i)->last_name, se))) {
-					output1a(i);
-				}
+		}
+		break;
+	case 2:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (!(strcmp((s + i)->last_name, se))) {
+				output1a(i);
 			}
-			break;
-		case 3:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se,50);
-			for (int i = 0; i < n; i++) {
-				if (!(strcmp((s + i)->patronymic, se))) {
-					output1a(i);
-				}
+		}
+		break;
+	case 3:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (!(strcmp((s + i)->patronymic, se))) {
+				output1a(i);
 			}
-			break;
-		case 4:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se,50);
-			for (int i = 0; i < n; i++) {
-				if (!(strcmp((s + i)->position, se))) {
-					output1a(i);
-				}
+		}
+		break;
+	case 4:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (!(strcmp((s + i)->position, se))) {
+				output1a(i);
 			}
-			break;
-		case 5:
-			printf("input search query: ");
-			if (!scanf("%d", &j)) {
-				return 0;
+		}
+		break;
+	case 5:
+		printf("input search query: ");
+		if (!scanf("%d", &j)) {
+			return 0;
+		}
+		for (int i = 0; i < n; i++) {
+			if ((s + i)->year_of_birthday == j) {
+				output1a(i);
 			}
-			for (int i = 0; i < n; i++) {
-				if ((s+i)->year_of_birthday == j) {
-					output1a(i);
-				}
+		}
+		break;
+	case 6:
+		printf("input search query: ");
+		if (!scanf("%d", &j)) {
+			return 0;
+		}
+		for (int i = 0; i < n; i++) {
+			if ((s + i)->salary == j) {
+				output1a(i);
 			}
-			break;
-		case 6:
-			printf("input search query: ");
-			if (!scanf("%d", &j)) {
-				return 0;
-			}
-			for (int i = 0; i < n; i++) {
-				if ((s + i)->salary == j) {
-					output1a(i);
-				}
-			}
-			break;
-		default:
-			printf("wrong number\n");
-			break;
+		}
+		break;
+	default:
+		printf("wrong number\n");
+		break;
 	}
 }
 
@@ -142,8 +142,8 @@ void search(int n) {
 void output(int n) {
 	system("cls");
 	for (int i = 0; i < n; i++) {
-		
-		printf("Employee ¹%d\n", i + 1);
+
+		printf("Employee â„–%d\n", i + 1);
 		printf("First name: ");
 		puts((s + i)->first_name);
 		printf("Last name: ");
@@ -152,8 +152,8 @@ void output(int n) {
 		puts((s + i)->patronymic);
 		printf("Position: ");
 		puts((s + i)->position);
-		printf("Year of birthday: %d\n", (s+i) -> year_of_birthday);	
-		printf("Salary: %d", (s+i) -> salary);
+		printf("Year of birthday: %d\n", (s + i)->year_of_birthday);
+		printf("Salary: %d", (s + i)->salary);
 		printf("\n\n");
 
 	}
@@ -180,43 +180,43 @@ void change_info(int n) {
 		return;
 	}
 	switch (a) {
-		case 1:
-			printf("Input new first name: ");
-			gets_s((s + b)->first_name, 20);
-			gets_s((s + b)->first_name,20);
-			break;
-		case 2:
-			printf("Input new Last name: ");
-			gets_s((s + b)->last_name, 20);
-			gets_s((s + b)->last_name,20);
-			break;
-		case 3:
-			printf("Input new patronymic: ");	
-			gets_s((s + b)->patronymic, 20);
-			gets_s((s + b)->patronymic,20);
-			break;
-		case 4:
-			printf("Input new position: ");
-			gets_s((s + b)->position, 50);
-			gets_s((s + b)->position,50);
-			break;
-		case 5:
-			printf("Input new year of birthday: ");
-			if (!scanf("%d", &(s + b)->year_of_birthday)) {
-				return;
-			}
-			break;
-		case 6:
-			printf("Input new salary: ");
-			if (!scanf("%d", &(s + b)->salary)) {
-				return;
-			}
-			break;
-		default:
-			printf("wrong number\n");
-			break;
+	case 1:
+		printf("Input new first name: ");
+		gets_s((s + b)->first_name, 20);
+		gets_s((s + b)->first_name, 20);
+		break;
+	case 2:
+		printf("Input new Last name: ");
+		gets_s((s + b)->last_name, 20);
+		gets_s((s + b)->last_name, 20);
+		break;
+	case 3:
+		printf("Input new patronymic: ");
+		gets_s((s + b)->patronymic, 20);
+		gets_s((s + b)->patronymic, 20);
+		break;
+	case 4:
+		printf("Input new position: ");
+		gets_s((s + b)->position, 50);
+		gets_s((s + b)->position, 50);
+		break;
+	case 5:
+		printf("Input new year of birthday: ");
+		if (!scanf("%d", &(s + b)->year_of_birthday)) {
+			return;
+		}
+		break;
+	case 6:
+		printf("Input new salary: ");
+		if (!scanf("%d", &(s + b)->salary)) {
+			return;
+		}
+		break;
+	default:
+		printf("wrong number\n");
+		break;
 	}
-	
+
 }
 
 int tolowersorting(char* s1, char* s2) {
@@ -243,78 +243,79 @@ void sorting(int n) {
 	printf("What parameter do you want to sorting?\n");
 	menu();
 	int a;
-	
+
 	if (!scanf("%d", &a)) {
 		return 0;
 	}
 	switch (a) {
-		case 1:
-			for (int i = 0; i < n; i++) {
-				for (int j = i+1; j < n; j++) {
-					if (tolowersorting((s+i)->first_name,(s+j)->first_name) > 0) {
-						chang(i, j);
-					}
+	case 1:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (tolowersorting((s + i)->first_name, (s + j)->first_name) > 0) {
+					chang(i, j);
 				}
 			}
-			break;
-		case 2:
-			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if (tolowersorting((s + i)->last_name, (s + j)->last_name) > 0) {
-						chang(i, j);
-					}
+		}
+		break;
+	case 2:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (tolowersorting((s + i)->last_name, (s + j)->last_name) > 0) {
+					chang(i, j);
 				}
 			}
-			break;
-		case 3:
-			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if (tolowersorting((s + i)->patronymic, (s + j)->patronymic) > 0) {
-						chang(i, j);
-					}
+		}
+		break;
+	case 3:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (tolowersorting((s + i)->patronymic, (s + j)->patronymic) > 0) {
+					chang(i, j);
 				}
 			}
-			break;
-		case 4:
-			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if (tolowersorting((s + i)->position, (s + j)->position) > 0) {
-						chang(i, j);
-					}
+		}
+		break;
+	case 4:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (tolowersorting((s + i)->position, (s + j)->position) > 0) {
+					chang(i, j);
 				}
 			}
-			break;
-		case 5:
-			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if ((s+i)->year_of_birthday>(s+j)->year_of_birthday) {
-						chang(i, j);
-					}
+		}
+		break;
+	case 5:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if ((s + i)->year_of_birthday > (s + j)->year_of_birthday) {
+					chang(i, j);
 				}
 			}
-			break;
-		case 6:
-			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if ((s + i)->salary < (s + j)->salary) {
-						chang(i, j);
-					}
+		}
+		break;
+	case 6:
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if ((s + i)->salary < (s + j)->salary) {
+					chang(i, j);
 				}
 			}
-			break;
-		default:
-			printf("wrong number\n");
-			break;
-		
+		}
+		break;
+	default:
+		printf("wrong number\n");
+		break;
+
 	}
 
 }
 
-void del(int *n) {
+void del(int* n) {
 	system("cls");
 	printf("What parameter do you want to search by?\n");
 	menu();
-	
+	printf("7:By number\n");
+
 	int a;
 	int j;
 	char se[50];
@@ -326,7 +327,7 @@ void del(int *n) {
 		gets_s(se, 50);
 		for (int i = 0; i < *n; i++) {
 			if (!(strcmp((s + i)->first_name, se))) {
-				del1(i, n);			
+				del1(i, n);
 				i--;
 			}
 		}
@@ -388,14 +389,22 @@ void del(int *n) {
 			}
 		}
 		break;
+	case 7:
+		printf("input number of employee: ");
+		if (!scanf("%d", &j)) {
+			return;
+		}
+		j--;
+		del1(j, n);
+		break;
 	default:
 		printf("wrong number\n");
 		break;
 	}
 }
 
-int psearch1(char* se,char* s1) {
-	int r = 0, i = 0, j = 0, k=0;
+int psearch1(char* se, char* s1) {
+	int r = 0, i = 0, j = 0, k = 0;
 	while (se[i]) {
 		if (se[i] != '*') {
 			r++;
@@ -410,7 +419,7 @@ int psearch1(char* se,char* s1) {
 		while (se[j] == '*') {
 			j++;
 		}
-		if ((se[j] == s1[i]) && (se[j-1] == '*' || s1[i-1] ==se[j-1] || (i==0 && j==0) ))  {
+		if ((se[j] == s1[i]) && (se[j - 1] == '*' || s1[i - 1] == se[j - 1] || (i == 0 && j == 0))) {
 			j++;
 			k++;
 		}
@@ -437,74 +446,99 @@ void psearch(int n) {
 	}
 	fflush(stdin);
 	switch (a) {
-		case 1:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se,50);
-			for (int i = 0; i < n; i++) {
-				if (psearch1(se,(s+i)->first_name)) {
-					output1a(i);
-				}
+	case 1:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (psearch1(se, (s + i)->first_name)) {
+				output1a(i);
 			}
-			break;
-		case 2:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se, 50);
-			for (int i = 0; i < n; i++) {
-				if (psearch1(se, (s + i)->last_name)) {
-					output1a(i);
-				}
+		}
+		break;
+	case 2:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (psearch1(se, (s + i)->last_name)) {
+				output1a(i);
 			}
-			break;
-		case 3:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se, 50);
-			for (int i = 0; i < n; i++) {
-				if (psearch1(se, (s + i)->patronymic)) {
-					output1a(i);
-				}
+		}
+		break;
+	case 3:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (psearch1(se, (s + i)->patronymic)) {
+				output1a(i);
 			}
-			break;
-		case 4:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se, 50);
-			for (int i = 0; i < n; i++) {
-				if (psearch1(se, (s + i)->position)) {
-					output1a(i);
-				}
+		}
+		break;
+	case 4:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+		for (int i = 0; i < n; i++) {
+			if (psearch1(se, (s + i)->position)) {
+				output1a(i);
 			}
-			break;
-		case 5:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se, 50);
-			
-			for (int i = 0; i < n; i++) {
-				p = itoa((s + i)->year_of_birthday, buff, 10);
-				if (psearch1(se, p)) {
-					output1a(i);
-				}
-			}
-			break;
-		case 6:
-			printf("input search query: ");
-			gets_s(se, 50);
-			gets_s(se, 50);
+		}
+		break;
+	case 5:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
 
-			for (int i = 0; i < n; i++) {
-				p = itoa((s + i)->salary, buff, 10);
-				if (psearch1(se, p)) {
-					output1a(i);
-				}
+		for (int i = 0; i < n; i++) {
+			p = itoa((s + i)->year_of_birthday, buff, 10);
+			if (psearch1(se, p)) {
+				output1a(i);
 			}
-			break;
-		default:
-			printf("wrong number\n");
+		}
+		break;
+	case 6:
+		printf("input search query: ");
+		gets_s(se, 50);
+		gets_s(se, 50);
+
+		for (int i = 0; i < n; i++) {
+			p = itoa((s + i)->salary, buff, 10);
+			if (psearch1(se, p)) {
+				output1a(i);
+			}
+		}
+		break;
+	default:
+		printf("wrong number\n");
 
 	}
+}
+
+void add(int* n) {
+	*n = *n+1;
+	s = (struct Employee*)realloc(s, *n * sizeof(struct Employee));
+	printf("Employee â„–%d\n", *n);
+	printf("Input first name: ");
+	gets_s((s + *n-1)->first_name, 20);
+	gets_s((s + *n-1)->first_name, 20);
+	printf("Input last name: ");
+	gets_s((s + *n-1)->last_name, 20);
+	printf("Input patronymic: ");
+	gets_s((s + *n-1)->patronymic, 20);
+	printf("Input position: ");
+	gets_s((s + *n-1)->position, 50);
+	printf("Input year of birthday: ");
+	if (!scanf("%d", &(s + *n-1)->year_of_birthday)) {
+		return 0;
+	}
+	printf("Input salary: ");
+	if (!scanf("%d", &(s + *n-1)->salary)) {
+		return 0;
+	}
+
+	printf("\n");
 }
 
 int main() {
@@ -517,16 +551,16 @@ int main() {
 	s = (struct Employee*)calloc(n, sizeof(struct Employee));
 	r = (struct Employee*)calloc(1, sizeof(struct Employee));
 	for (int i = 0; i < n; i++) {
-		printf("Employee ¹%d\n", i+1);
+		printf("Employee â„–%d\n", i + 1);
 		printf("Input first name: ");
 		gets_s((s + i)->first_name, 20);
-		gets_s((s + i)->first_name,20);
+		gets_s((s + i)->first_name, 20);
 		printf("Input last name: ");
-		gets_s((s + i)->last_name,20);
+		gets_s((s + i)->last_name, 20);
 		printf("Input patronymic: ");
-		gets_s((s + i)->patronymic,20);
+		gets_s((s + i)->patronymic, 20);
 		printf("Input position: ");
-		gets_s((s + i)->position,50);
+		gets_s((s + i)->position, 50);
 		printf("Input year of birthday: ");
 		if (!scanf("%d", &(s + i)->year_of_birthday)) {
 			return 0;
@@ -538,45 +572,49 @@ int main() {
 
 		printf("\n");
 	}
-	
+
 	int a;
 	do {
 		printf("Input number of operation\n");
 		printf("If you want exit, input 99\n");
 		printf("1:Information output\n");
-		printf("2:Change information\n");
-		printf("3:Search\n");
-		printf("4:Sorting\n");
-		printf("5:Delete\n");
-		printf("6:Partial search\n");
+		printf("2:Add employee\n");
+		printf("3:Change information\n");
+		printf("4:Search\n");
+		printf("5:Sorting\n");
+		printf("6:Delete\n");
+		printf("7:Partial search\n");
 		if (!scanf("%d", &a)) {
 			return 0;
 		}
 		printf("\n");
 		switch (a) {
-			case 1:
-				output(n);
-				break;
-			case 2:	
-				change_info(n);
-				break;
-			case 3:
-				search(n);
-				break;
-			case 4:
-				sorting(n);
-				break;
-			case 5:
-				del(&n);
-				break;
-			case 6:
-				psearch(n);
-				break;
-			default:
-				printf("wrong number\n");
-				break;
-		}	
-		
+		case 1:
+			output(n);
+			break;
+		case 2:
+			add(&n);
+			break;
+		case 3:
+			change_info(n);
+			break;
+		case 4:
+			search(n);
+			break;
+		case 5:
+			sorting(n);
+			break;
+		case 6:
+			del(&n);
+			break;
+		case 7:
+			psearch(n);
+			break;
+		default:
+			printf("wrong number\n");
+			break;
+		}
+
 	} while (a != 99);
 	free(s);
 	free(r);
