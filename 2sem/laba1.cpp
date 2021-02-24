@@ -12,6 +12,8 @@ struct Employee {
 }*s, * r;
 
 
+
+
 void chang(int i, int j) {
 	*(r + 0) = *(s + i);
 	*(s + i) = *(s + j);
@@ -33,13 +35,13 @@ void del1(int i, int* n) {
 			*(s + j) = *(s + j + 1);
 		}
 		*n = *n - 1;
-		s = (struct Employee*)realloc(s, *n * sizeof(struct Employee));
+		s = (Employee*)realloc(s, *n * sizeof( Employee));
 	}
 	else  if (*n == 1) {
-		r = (struct Employee*)calloc(1, sizeof(struct Employee));
+		r = (Employee*)calloc(1, sizeof(Employee));
 		*(s + i) = *r;
 		*n = *n - 1;
-		s = (struct Employee*)realloc(s, *n * sizeof(struct Employee));
+		s = (struct Employee*)realloc(s, *n * sizeof(Employee));
 	}
 }
 
@@ -66,12 +68,13 @@ void search(int n) {
 
 	char se[50];
 	if (!scanf("%d", &a)) {
-		return 0;
+		return;
 	}
+	rewind(stdin);
 	switch (a) {
 	case 1:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (!(strcmp((s + i)->first_name, se))) {
@@ -81,7 +84,7 @@ void search(int n) {
 		break;
 	case 2:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (!(strcmp((s + i)->last_name, se))) {
@@ -91,7 +94,7 @@ void search(int n) {
 		break;
 	case 3:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (!(strcmp((s + i)->patronymic, se))) {
@@ -101,7 +104,7 @@ void search(int n) {
 		break;
 	case 4:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (!(strcmp((s + i)->position, se))) {
@@ -112,7 +115,7 @@ void search(int n) {
 	case 5:
 		printf("input search query: ");
 		if (!scanf("%d", &j)) {
-			return 0;
+			return;
 		}
 		for (int i = 0; i < n; i++) {
 			if ((s + i)->year_of_birthday == j) {
@@ -123,7 +126,7 @@ void search(int n) {
 	case 6:
 		printf("input search query: ");
 		if (!scanf("%d", &j)) {
-			return 0;
+			return;
 		}
 		for (int i = 0; i < n; i++) {
 			if ((s + i)->salary == j) {
@@ -179,25 +182,26 @@ void change_info(int n) {
 	{
 		return;
 	}
+	rewind(stdin);
 	switch (a) {
 	case 1:
 		printf("Input new first name: ");
-		gets_s((s + b)->first_name, 20);
+		
 		gets_s((s + b)->first_name, 20);
 		break;
 	case 2:
 		printf("Input new Last name: ");
-		gets_s((s + b)->last_name, 20);
+		
 		gets_s((s + b)->last_name, 20);
 		break;
 	case 3:
 		printf("Input new patronymic: ");
-		gets_s((s + b)->patronymic, 20);
+		
 		gets_s((s + b)->patronymic, 20);
 		break;
 	case 4:
 		printf("Input new position: ");
-		gets_s((s + b)->position, 50);
+		
 		gets_s((s + b)->position, 50);
 		break;
 	case 5:
@@ -245,7 +249,7 @@ void sorting(int n) {
 	int a;
 
 	if (!scanf("%d", &a)) {
-		return 0;
+		return;
 	}
 	switch (a) {
 	case 1:
@@ -319,11 +323,14 @@ void del(int* n) {
 	int a;
 	int j;
 	char se[50];
-	scanf("%d", &a);
+	if (!scanf("%d", &a)) {
+		return;
+	}
+	rewind(stdin);
 	switch (a) {
 	case 1:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < *n; i++) {
 			if (!(strcmp((s + i)->first_name, se))) {
@@ -334,7 +341,7 @@ void del(int* n) {
 		break;
 	case 2:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < *n; i++) {
 			if (!(strcmp((s + i)->last_name, se))) {
@@ -345,7 +352,7 @@ void del(int* n) {
 		break;
 	case 3:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < *n; i++) {
 			if (!(strcmp((s + i)->patronymic, se))) {
@@ -356,7 +363,7 @@ void del(int* n) {
 		break;
 	case 4:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < *n; i++) {
 			if (!(strcmp((s + i)->position, se))) {
@@ -368,7 +375,7 @@ void del(int* n) {
 	case 5:
 		printf("input search query: ");
 		if (!scanf("%d", &j)) {
-			return 0;
+			return;
 		}
 		for (int i = 0; i < *n; i++) {
 			if ((s + i)->year_of_birthday == j) {
@@ -380,7 +387,7 @@ void del(int* n) {
 	case 6:
 		printf("input search query: ");
 		if (!scanf("%d", &j)) {
-			return 0;
+			return;
 		}
 		for (int i = 0; i < *n; i++) {
 			if ((s + i)->salary == j) {
@@ -442,13 +449,13 @@ void psearch(int n) {
 	char* p;
 	char buff[20];
 	if (!scanf("%d", &a)) {
-		return 0;
+		return;
 	}
-	fflush(stdin);
+	rewind(stdin);
 	switch (a) {
 	case 1:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (psearch1(se, (s + i)->first_name)) {
@@ -458,7 +465,7 @@ void psearch(int n) {
 		break;
 	case 2:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (psearch1(se, (s + i)->last_name)) {
@@ -468,7 +475,7 @@ void psearch(int n) {
 		break;
 	case 3:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (psearch1(se, (s + i)->patronymic)) {
@@ -478,7 +485,7 @@ void psearch(int n) {
 		break;
 	case 4:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 		for (int i = 0; i < n; i++) {
 			if (psearch1(se, (s + i)->position)) {
@@ -488,7 +495,7 @@ void psearch(int n) {
 		break;
 	case 5:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 
 		for (int i = 0; i < n; i++) {
@@ -500,7 +507,7 @@ void psearch(int n) {
 		break;
 	case 6:
 		printf("input search query: ");
-		gets_s(se, 50);
+		
 		gets_s(se, 50);
 
 		for (int i = 0; i < n; i++) {
@@ -517,11 +524,11 @@ void psearch(int n) {
 }
 
 void add(int* n) {
+	rewind(stdin);
 	*n = *n+1;
-	s = (struct Employee*)realloc(s, *n * sizeof(struct Employee));
+	s = (Employee*)realloc(s, *n * sizeof(Employee));
 	printf("Employee №%d\n", *n);
-	printf("Input first name: ");
-	gets_s((s + *n-1)->first_name, 20);
+	printf("Input first name: ");	
 	gets_s((s + *n-1)->first_name, 20);
 	printf("Input last name: ");
 	gets_s((s + *n-1)->last_name, 20);
@@ -531,11 +538,11 @@ void add(int* n) {
 	gets_s((s + *n-1)->position, 50);
 	printf("Input year of birthday: ");
 	if (!scanf("%d", &(s + *n-1)->year_of_birthday)) {
-		return 0;
+		return;
 	}
 	printf("Input salary: ");
 	if (!scanf("%d", &(s + *n-1)->salary)) {
-		return 0;
+		return;
 	}
 
 	printf("\n");
@@ -548,12 +555,13 @@ int main() {
 	if (!scanf("%d", &n)) {
 		return 0;
 	}
-	s = (struct Employee*)calloc(n, sizeof(struct Employee));
-	r = (struct Employee*)calloc(1, sizeof(struct Employee));
+	s = (Employee*)calloc(n, sizeof(Employee));
+	r = (Employee*)calloc(1, sizeof( Employee));
 	for (int i = 0; i < n; i++) {
+		rewind(stdin);
 		printf("Employee №%d\n", i + 1);
 		printf("Input first name: ");
-		gets_s((s + i)->first_name, 20);
+		
 		gets_s((s + i)->first_name, 20);
 		printf("Input last name: ");
 		gets_s((s + i)->last_name, 20);
