@@ -431,8 +431,11 @@ void del(int* n) {
 			printf("Error\n");
 			printf("input correct number: ");
 
-		}
+		}	
 		j--;
+		if(j>=*n){
+			return;
+		}
 		del1(j, n);
 		break;
 	default:
