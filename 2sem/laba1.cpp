@@ -67,8 +67,11 @@ void search(int n) {
 	int j;
 
 	char se[50];
-	if (!scanf("%d", &a)) {
-		return;
+	while (!scanf("%d", &a)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
 	}
 	rewind(stdin);
 	switch (a) {
@@ -114,8 +117,11 @@ void search(int n) {
 		break;
 	case 5:
 		printf("input search query: ");
-		if (!scanf("%d", &j)) {
-			return;
+		while (!scanf("%d", &j)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		for (int i = 0; i < n; i++) {
 			if ((s + i)->year_of_birthday == j) {
@@ -125,8 +131,11 @@ void search(int n) {
 		break;
 	case 6:
 		printf("input search query: ");
-		if (!scanf("%d", &j)) {
-			return;
+		while (!scanf("%d", &j)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		for (int i = 0; i < n; i++) {
 			if ((s + i)->salary == j) {
@@ -165,8 +174,11 @@ void output(int n) {
 void change_info(int n) {
 	int b;
 	printf("\nWhich employee do you want to change ? \n");
-	if (!scanf("%d", &b)) {
-		return;
+	while (!scanf("%d", &b)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
 	}
 	b--;
 	if (b >= n) {
@@ -178,9 +190,11 @@ void change_info(int n) {
 	system("cls");
 	menu();
 	int a;
-	if (!scanf("%d", &a))
-	{
-		return;
+	while (!scanf("%d", &a)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
 	}
 	rewind(stdin);
 	switch (a) {
@@ -206,14 +220,19 @@ void change_info(int n) {
 		break;
 	case 5:
 		printf("Input new year of birthday: ");
-		if (!scanf("%d", &(s + b)->year_of_birthday)) {
-			return;
+		while (!scanf("%d", &(s + b)->year_of_birthday)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct year of birthday: ");
+
 		}
 		break;
 	case 6:
 		printf("Input new salary: ");
-		if (!scanf("%d", &(s + b)->salary)) {
-			return;
+		while (!scanf("%d", &(s + b)->salary)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct salary: ");
 		}
 		break;
 	default:
@@ -248,8 +267,11 @@ void sorting(int n) {
 	menu();
 	int a;
 
-	if (!scanf("%d", &a)) {
-		return;
+	while (!scanf("%d", &a)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
 	}
 	switch (a) {
 	case 1:
@@ -374,8 +396,11 @@ void del(int* n) {
 		break;
 	case 5:
 		printf("input search query: ");
-		if (!scanf("%d", &j)) {
-			return;
+		while (!scanf("%d", &j)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		for (int i = 0; i < *n; i++) {
 			if ((s + i)->year_of_birthday == j) {
@@ -386,8 +411,11 @@ void del(int* n) {
 		break;
 	case 6:
 		printf("input search query: ");
-		if (!scanf("%d", &j)) {
-			return;
+		while (!scanf("%d", &j)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		for (int i = 0; i < *n; i++) {
 			if ((s + i)->salary == j) {
@@ -398,8 +426,11 @@ void del(int* n) {
 		break;
 	case 7:
 		printf("input number of employee: ");
-		if (!scanf("%d", &j)) {
-			return;
+		while (!scanf("%d", &j)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		j--;
 		del1(j, n);
@@ -448,8 +479,11 @@ void psearch(int n) {
 	char se[50];
 	char* p;
 	char buff[20];
-	if (!scanf("%d", &a)) {
-		return;
+	while (!scanf("%d", &a)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
 	}
 	rewind(stdin);
 	switch (a) {
@@ -537,12 +571,17 @@ void add(int* n) {
 	printf("Input position: ");
 	gets_s((s + *n-1)->position, 50);
 	printf("Input year of birthday: ");
-	if (!scanf("%d", &(s + *n-1)->year_of_birthday)) {
-		return;
+	while (!scanf("%d", &(s + *n-1)->year_of_birthday)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct year of birthday: ");
+
 	}
 	printf("Input salary: ");
-	if (!scanf("%d", &(s + *n-1)->salary)) {
-		return;
+	while (!scanf("%d", &(s + *n-1)->salary)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct salary: ");
 	}
 
 	printf("\n");
@@ -552,7 +591,13 @@ int main() {
 	system("chcp 1251 > null");
 	int n;
 	printf("Enter the number of employees: ");
-	if (!scanf("%d", &n)) {
+	while (!scanf("%d", &n)) {
+		rewind(stdin);
+		printf("Error\n");
+		printf("input correct number: ");
+
+	}
+	if (n < 0) {
 		return 0;
 	}
 	s = (Employee*)calloc(n, sizeof(Employee));
@@ -570,14 +615,18 @@ int main() {
 		printf("Input position: ");
 		gets_s((s + i)->position, 50);
 		printf("Input year of birthday: ");
-		if (!scanf("%d", &(s + i)->year_of_birthday)) {
-			return 0;
+		while (!scanf("%d", &(s + i)->year_of_birthday)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct year of birthday: ");
+
 		}
 		printf("Input salary: ");
-		if (!scanf("%d", &(s + i)->salary)) {
-			return 0;
+		while (!scanf("%d", &(s + i)->salary)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct salary: ");
 		}
-
 		printf("\n");
 	}
 
@@ -592,8 +641,11 @@ int main() {
 		printf("5:Sorting\n");
 		printf("6:Delete\n");
 		printf("7:Partial search\n");
-		if (!scanf("%d", &a)) {
-			return 0;
+		while(!scanf("%d", &a)) {
+			rewind(stdin);
+			printf("Error\n");
+			printf("input correct number: ");
+
 		}
 		printf("\n");
 		switch (a) {
