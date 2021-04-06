@@ -14,7 +14,7 @@ int main() {
 		printf("2:Information output\n");
 		printf("3:Delete by number\n");
 		printf("4:Search\n");
-		printf("5:Sorting\n");
+		printf("5:Sorting(steel in beta)\n");
 		scanf("%d", &a);
 		rewind(stdin);
 		switch (a) {
