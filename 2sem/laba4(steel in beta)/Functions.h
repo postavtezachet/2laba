@@ -88,18 +88,18 @@ void show(Game* s) {
 		return;
 	}
 	int i = 0;
-	printf("| Game № | Price |    Name    |     Genre     | Max players |\n");
-	printf("------------------------------------------------------------------\n");
+	printf("| Game № | Price |             Name             |        Genre        |  Max players  |\n");
+	printf("---------------------------------------------------------------------------------------\n");
 	while (1) {
 		printf("|  %6d", i + 1);
-		printf("|%7d|%12s", (s)->price, (s)->name);
+		printf("|%7d|%30s", (s)->price, (s)->name);
 		if ((s)->r == 2) {
-			printf("|\t\t      |%13d|\n", (s)->un.max_players);
+			printf("|\t\t      |%15d|\n", (s)->un.max_players);
 		}
 		else if ((s)->r == 1) {
-			printf("|%15s|\t\t    |\n", (s)->un.genre);
+			printf("|%21s|\t\t      |\n", (s)->un.genre);
 		}
-		printf("------------------------------------------------------------------\n");
+		printf("---------------------------------------------------------------------------------------\n");
 		i++;
 		if (!(s->point)) {
 			return;
@@ -111,8 +111,9 @@ void show(Game* s) {
 }
 
 void del(Game** s, int n) {
-	Game* ptr;
+	Game* ptr, *buff;
 	ptr = *s;
+	buff = (*s)->point;
 
 	int i = 1;
 	while (1) {
@@ -123,22 +124,21 @@ void del(Game** s, int n) {
 			return;
 		}
 		else if (n == i) {
-			ptr = ptr->point;
-			if (!((*s)->point)) {
-				(*s)->point = nullptr;
-				free(ptr->name);
-				free(ptr);
+			if (!((buff)->point)) {
+				(ptr)->point = buff->point;
+				free(buff->name);
+				free(buff);
 				return;
 			}
 
 
-			(*s)->point = ptr->point;
-			free(ptr->name);
-			free(ptr);
+			(ptr)->point = buff->point;
+			free(buff->name);
+			free(buff);
 			return;
 		}
 		ptr = ptr->point;
-		*s = (*s)->point;
+		buff = (buff)->point;
 		i++;
 	}
 }
@@ -318,17 +318,10 @@ void sorting(Game** s) {
 			}
 		}
 		break;
-	/*case 3:
+	case 3:
 		for (; ss->point->point;) {
-
 			s1 = ss->point;
-			if (s1->r != 1) {
-				continue;
-			}
 			for (s2 = ss->point, s5 = ss; s2; s2 = s2->point, s5 = s5->point) {
-				if (s2->r != 1) {
-					continue;
-				}
 				if (tolowersorting((s1)->un.genre, (s2)->un.genre) > 0) {
 					s1 = s2;
 					s3 = s5;
@@ -353,14 +346,10 @@ void sorting(Game** s) {
 		for (; ss->point->point;) {
 
 			s1 = ss->point;
-			if (s1->r != 2) {
-				continue;
-			}
+			
 			for (s2 = ss->point, s5 = ss; s2; s2 = s2->point, s5 = s5->point) {
-				if (s2->r != 2) {
-					continue;
-				}
-				if ((s1)->un.max_players < (s2)->un.max_players) {
+				
+				if ((s1)->un.max_players > (s2)->un.max_players) {
 					s1 = s2;
 					s3 = s5;
 				}
@@ -379,7 +368,7 @@ void sorting(Game** s) {
 
 			}
 		}
-		break;*/
+		break;
 	default:
 		printf("wrong number\n");
 		break;
