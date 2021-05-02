@@ -1,0 +1,8 @@
+500
+monopoly
+2
+5
+400
+alies
+1
+xz
