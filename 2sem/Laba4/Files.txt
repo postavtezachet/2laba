@@ -1,6 +1,1 @@
 
-name
-norm
-norm 2
-Games
-test1
