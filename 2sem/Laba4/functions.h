@@ -548,7 +548,7 @@ void save_t(Game* s) {
 			trig = 1;
 			break;
 		}
-		if (!(strcmp("Files", name_w_t))) {
+		if (!(strcmp("Files.txt", name_w_t))) {
 			trig = 1;
 			break;
 		}
