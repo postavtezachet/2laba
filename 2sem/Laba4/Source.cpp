@@ -46,11 +46,10 @@ int main() {
 		printf("2:Information output\n");
 		printf("3:Delete by number\n");
 		printf("4:Search\n");
-		printf("5:Sorting\n");
-		printf("6:Save in txt file\n");
-		printf("7:Save in bin file\n");
-		printf("8:Open txt file\n");
-		printf("9:Open bin file\n");
+		printf("5:Save in txt file\n");
+		printf("6:Save in bin file\n");
+		printf("7:Open txt file\n");
+		printf("8:Open bin file\n");
 		scanf("%d", &a);
 		rewind(stdin);
 		switch (a) {
@@ -79,17 +78,13 @@ int main() {
 			break;
 		case 5:
 			system("cls");
-			sorting(&game);
+			save_t(game);
 			break;
 		case 6:
 			system("cls");
-			save_t(game);
-			break;
-		case 7:
-			system("cls");
 			save_b(game);
 			break;
-		case 8:
+		case 7:
 
 			system("cls");
 			printf("Do you want to add or overwrite?(1/0)");
@@ -108,7 +103,7 @@ int main() {
 			}
 			open_t(&game);
 			break;
-		case 9:
+		case 8:
 			system("cls");
 			printf("Do you want to add or overwrite?(1/0)");
 			while (1) {
