@@ -191,7 +191,7 @@ void show(Game* s) {
 		return;
 	}
 	int i = 0;
-	printf("| Game น |  Price  |             Name             |        Genre        |  Max players  |\n");
+	printf("| Game ยน |  Price  |             Name             |        Genre        |  Max players  |\n");
 	printf("-----------------------------------------------------------------------------------------\n");
 	while (1) {
 		printf("|  %6d", i + 1);
@@ -346,147 +346,7 @@ void search(Game* s) {
 
 }
 
-int tolowersorting(char* s1, char* s2) {
-	char f[50];
-	char f1[50];
-	int i = 0, j = 0;
-	while (s1[i]) {
-		f[j] = tolower(s1[i]);
-		i++;
-		j++;
-	}
-	i = 0;
-	j = 0;
-	while (s2[i]) {
-		f1[j] = tolower(s2[i]);
-		i++;
-		j++;
-	}
-	return strcmp(f, f1);
-}
 
-void sorting(Game** s) {
-	Game* s1, * s2, * s3 = 0, * s4 = nullptr, * s5, * ss;
-	ss = (Game*)calloc(1, sizeof(Game));
-	ss->point = *s;
-	printf("What parameter do you want to sorting?\n");
-
-	menu();
-	int a;
-
-	while (!scanf("%d", &a)) {
-		rewind(stdin);
-		printf("Error\n");
-		printf("input correct number: ");
-
-	}
-	switch (a) {
-	case 1:
-		for (; ss->point->point;) {
-			s1 = ss->point;
-			for (s2 = ss->point, s5 = ss; s2; s2 = s2->point, s5 = s5->point) {
-				if ((s1)->price < (s2)->price) {
-					s1 = s2;
-					s3 = s5;
-				}
-
-			}
-			if (s1 != ss->point) {
-				s3->point = s1->point;
-				s1->point = ss->point;
-				ss->point = s1;
-			}
-			ss = ss->point;
-			if (!s4) {
-				free(s4);
-				*s = s4 = s1;
-			}
-		}
-		break;
-	case 2:
-		for (; ss->point->point;) {
-			s1 = ss->point;
-			for (s2 = ss->point, s5 = ss; s2; s2 = s2->point, s5 = s5->point) {
-				if (tolowersorting(s1->name, s2->name) > 0) {
-					s1 = s2;
-					s3 = s5;
-				}
-
-			}
-			if (s1 != ss->point) {
-				s3->point = s1->point;
-				s1->point = ss->point;
-				ss->point = s1;
-			}
-
-			ss = ss->point;
-			if (!s4) {
-				free(s4);
-				*s = s4 = s1;
-			}
-		}
-		break;
-	case 3:
-		for (; ss->point->point;) {
-			s1 = ss->point;
-			for (s2 = s1->point, s5 = s1; s2; s2 = s2->point, s5 = s5->point) {
-				if (s2->r == 1 && s1->r==1) {
-					if (tolowersorting((s1)->un.genre, (s2)->un.genre) > 0) {
-						s1 = s2;
-						s3 = s5;
-					}
-				}
-
-			}
-			if (s1 != ss->point) {
-				s3->point = s1->point;
-				s1->point = ss->point;
-				ss->point = s1;
-			}
-
-			ss = ss->point;
-			if (!s4) {
-				free(s4);
-				*s = s4 = s1;
-			}
-
-		}
-		break;
-	case 4:
-		for (; ss->point->point;) {
-
-			s1 = ss->point;
-			
-			for (s2 = s1->point, s5 = s1; s2; s2 = s2->point, s5 = s5->point) {
-				if (s2->r == 2 && s1->r==2) {
-					if ((s1)->un.max_players < (s2)->un.max_players) {
-						s1 = s2;
-						s3 = s5;
-					}
-				}
-
-			}
-			if (s1 != ss->point) {
-				s3->point = s1->point;
-				s1->point = ss->point;
-				ss->point = s1;
-			}
-
-			ss = ss->point;
-			if (!s4) {
-				free(s4);
-				*s = s4 = s1;
-
-			}
-		}
-		break;
-	default:
-		printf("wrong number\n");
-		break;
-	}
-
-
-}		
 int open_t(Game** s) {
 	FILE* f;
 	Game* sl = *s;
